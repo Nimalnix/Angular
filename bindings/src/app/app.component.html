@@ -1,0 +1,106 @@
+
+<b>select themes</b><br>
+
+<select size="1" [(ngModel)]="themeName">
+  <option value="forest">Forest</option>
+  <option value="ocean">Ocean</option>
+  <option value="cloud">Cloud</option>
+</select>
+
+
+<div [class]="themeName" [style.width]="size+'px'" [style.height]="size+'px'">
+  <b>Go da Punda mavanae</b>
+</div>
+<select size="1" [(ngModel)]="colorName">
+  <option value="Red">Red</option>
+  <option value="Pink">Pink</option>
+  <option value="Blue">Blue</option>
+</select>
+<input type="text" [class]="colorName"/>
+<br>
+<b>Set the Size</b> &nbsp;&nbsp; <input type ="number" min="100" max="500" step="20" [(ngModel)]="size">
+<br>
+<form name="myForm" (submit)="sendData()">
+<!--Property Binding-->
+First name <input type="text" name="firstName" [(ngModel)]="udata.firstName"
+(ngModelChange)="checkData()"  /> <label style="color:tomato" *ngIf="this.udata.firstName.length==0">enter firstname</label><br>
+Last name <input type="text" name="lastName" [(ngModel)]="udata.lastName"/><label style="color: hotpink;" *ngIf="this.udata.lastName.length==0">enter lastname</label><br>
+<input type="checkbox" name="enableDisable" [(ngModel)]="enableDisable" /> Agree to T & C <br>
+<input type="button" value="save data" name="saveData"
+(click) ="saveData($event)" />&nbsp;&nbsp;
+
+<input type="submit" value="submitform" >
+<!--$event is an optional parameter-->
+<!--same as onClick="saveData($event)" in JS-->
+<input type="button" value="reset data" [disabled]="!udata.firstName && !udata.lastName">Reset
+
+</form>
+
+<!--same as for as loop in js-->
+<b>List of Users</b><br>
+<li *ngFor="let user of usersList">{{user.firstName}} {{user.lastName}} {{user.location}} {{user.company}}</li>
+
+
+
+
+<form>
+  companyname <input type="text" name="company" [(ngModel)]="this.udata.company"/><br>
+  Customer location  <input type="text" name="location" [(ngModel)]="this.udata.location"/><br>
+</form>
+<!--
+<ng-container *ngIf="this.udata.company.length !=0 &&this.udata.location.length !=0;
+  then Correct;else NotCorrect;"></ng-container>
+ 
+  <ng-template #Correct><div>
+    <b><u>Inputs are Correct</u></b>
+  </div></ng-template>
+ 
+<ng-template #NotCorrect> <div>
+    <b><u>Inputs are not Correct</u></b>
+</div></ng-template>
+-->
+
+<ng-template [ngIf]="this.udata.company.length !=0 && this.udata.location.length !=0"
+[ngIfElse]=" NotCorrect">
+<b>inputs are correct</b></ng-template>
+
+<ng-template #NotCorrect> <b>inputs are not correct</b></ng-template>
+
+
+
+<select size="1" [(ngModel)]="this.stateName" >
+  <option value="TN">Tamil nadu</option>
+  <option value="AP">Andhra pradesh</option>
+  <option value="KA">Karnataka</option>
+  <option value="KL">Kerala</option>
+  <option value="Delhi">Delhi</option>
+</select>
+
+<div [ngSwitch]="this.stateName">
+  
+  
+    <ul *ngSwitchCase="'TN'">
+      <li>Chennai</li>
+      <li>Salem</li>
+      <li>Trichy</li>
+      </ul>
+      <ul *ngSwitchCase="'KL'">
+        <li>kochi</li>
+        <li>Ernakulam</li>
+        <li>Palakad</li>
+        </ul>
+        <ul *ngSwitchCase="'AP'">
+          <li>tirupati</li>
+          <li>hyderabad</li>
+          <li>vishakapatnam</li>
+          </ul>
+          <ul *ngSwitchCase="'Delhi'">
+            <li>Lucknow</li>
+            <li>Allahabad</li>
+            <li>Kanpur</li>
+            </ul>
+  </div>
+ 
+
+
+<router-outlet></router-outlet>

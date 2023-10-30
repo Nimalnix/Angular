@@ -1,0 +1,62 @@
+
+firstName<input type="text" [(ngModel)]="firstName"/>&nbsp;&nbsp;
+<i *ngIf="!firstName" >Please enter your First Name</i>
+<br>
+
+lastName<input type="text" [(ngModel)]="lastName"/>&nbsp;&nbsp;
+<i *ngIf="!lastName" >Please enter your last Name</i>
+<br>
+<br>
+<select size="2" [(ngModel)]="state">
+  <option value="TN">Tamil nadu</option>
+  <option value="AP">Andhra pradesh</option>
+  <option value="KA">Karnataka</option>
+  <option value="KL">Kerala</option>
+  <option value="Delhi">Delhi</option>
+ 
+
+</select>
+<div>
+  <select size="3" *ngIf="state=='TN'" [(ngModel)]="city" >
+    <option value="Chennai">Chennai</option>
+    <option value="Coimbatore">Coimbatore</option>
+    <option value="Madurai">Madurai</option>
+    <option value="Salem">Salem</option>
+  </select>
+
+</div>
+<div>
+  <select size="3" *ngIf="state=='AP'" [(ngModel)]="city" >
+    <option value="Hyderabad">Hyderabad</option>
+    <option value>Warangal</option>
+    <option value>Vizag</option>
+    <option value>Visakhapatnam</option>
+  </select>
+
+</div>
+<div>
+  <select size="3" *ngIf="state=='KA'" [(ngModel)]="city" >
+    <option value>Bangalore</option>
+    <option value>Mysore</option>
+    <option value>Hubli</option>
+    <option value>Chitradurga</option>
+  </select>
+</div>
+<div>
+  <select size="3" *ngIf="state=='KL'" [(ngModel)]="city" >
+    <option value>Trivandrum</option>
+    <option value>Kochi</option>
+    <option value>Ernakulam</option>
+    <option value>Palakkad</option>
+  </select>
+</div>
+<div>
+  <select size="3" *ngIf="state=='Delhi'" [(ngModel)]="city" >
+    <option value>Delhi</option>
+    <option value>Noida</option>
+    <option value>Gurugram</option>
+    <option value>Ghaziabad</option>
+  </select>
+</div>
+
+<router-outlet></router-outlet>

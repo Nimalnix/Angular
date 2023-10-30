@@ -1,0 +1,10 @@
+b{
+    border:3px;
+    border-style: dotted;
+    border-color: darkcyan;
+
+}
+
+div{
+    width:500px;height: 400px;color:cornsilk;background-color: darkcyan
+}

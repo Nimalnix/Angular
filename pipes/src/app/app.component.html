@@ -1,0 +1,33 @@
+
+First Name: {{this.udata.firstName | uppercase}};<br>
+Last Name: {{this.udata.lastName | uppercase}};<br>
+{{this.udata.firstName + ' ' + this.udata.lastName}};<br>
+First Name: {{this.udata.firstName | lowercase}};<br>
+Last Name: {{this.udata.lastName | lowercase}};<br>
+
+
+First Name &nbsp; {{this.udata.firstName + this.udata.lastName | slice:1:7}};
+<br>
+
+First Name &nbsp; {{this.udata.firstName + this.udata.lastName | slice:4}};
+<br>
+
+Join Date: {{this.udata.dateOfJoining | date:'dd/MM/yyyy'}};<br>
+Full Date: {{this.udata.dateOfJoining | date:'fullDate' }};<br>
+Short Date: {{this.udata.dateOfJoining | date:'shortDate' }};<br>
+
+
+
+Full Time: {{this.udata.dateOfJoining | date:'fullTime' }};<br>
+Short Time: {{this.udata.dateOfJoining | date:'shortTime' }};<br>
+
+
+Currency &nbsp; {{this.udata.salary | currency:'INR' }};<br>
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

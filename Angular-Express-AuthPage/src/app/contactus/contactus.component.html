@@ -1,0 +1,35 @@
+<form #contactData="ngForm" (ngSubmit)="addContact(contactData)">
+  FirstName <input type="text" name="FirstName" ngModel /><br>
+  LastName <input type="text" name="LastName" ngModel /><br>
+  Email ID <input type="email" name="EmailID" ngModel /><br>
+  Phone Number <input type="number" name="PhoneNumber" ngModel /><br>
+  Address <input type="text" name="Address" ngModel /><br>
+
+  <input type="submit" value="Add contact" />&nbsp; &nbsp;
+  <input type="button" value="Get User" (click)="getAllContact()"/>&nbsp; &nbsp;
+  <input type="button" value="update User" (click)="updateContact( contactData)"/>&nbsp; &nbsp;
+  <input type="button" value="delete User" (click)="deleteContact(contactData)"/>
+</form>
+<table  border="4">
+  <thead>
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>EmailID</th>
+      <th>PhoneNumber</th>
+      <th>Address</th>
+ 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of contactList">
+      <td>{{ user.FirstName}}</td>
+      <td>{{ user.LastName }}</td>
+      <td>{{ user.EmailID }}</td>
+      <td>{{ user.PhoneNumber }}</td>
+      <td>{{ user.Address }}</td>
+
+    
+    </tr>
+  </tbody>
+</table>

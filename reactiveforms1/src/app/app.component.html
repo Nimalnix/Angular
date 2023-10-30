@@ -1,0 +1,38 @@
+
+<!-- Reactive form makes use of a build-in class called formGroup 
+A formgroup is a collection of form elements.
+ng model is not used-->
+
+
+<!-- Reactive forms make use of built in class called form group.
+    form grp is collection of form elements
+ 
+-->
+ 
+<b>Enter Users Data</b><br>
+<form [formGroup]="userForm" (ngSubmit)="addUser()">
+  FirstName: <input type="text" name="firstName" formControlName="firstName"/><br>
+  LastName: <input type="text" name="lastName" formControlName="lastName"  /><br>
+  DOJ: <input type="date" name="joinDate" formControlName="joinDate" min="2020-01-01" max="2023-01-01"/><br>
+  Salary: <input type="number" name="salary" formControlName="salary"/><br>
+  <!--valid is a build in property of form.If all the validation has passed,then valid will be true else false-->
+  <input type="submit" value="Add User" name="save" [disabled]="!this.userForm.valid"/><br>
+  <input type="submit" value="Delete User" name="delete" /><br>
+</form>
+ 
+<table border>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>DOJ</th>
+    <th>Salary</th>
+  </tr>
+  <tbody>
+  <tr *ngFor="let user of userList">  
+    <td>{{ user.firstName }}</td>
+    <td>{{ user.lastName }}</td>
+    <td>{{ user.joinDate }}</td>
+    <td>{{ user.salary }}</td>
+  </tr>
+  </tbody>  
+</table>

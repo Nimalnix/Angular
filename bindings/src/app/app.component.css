@@ -1,0 +1,41 @@
+.ocean{
+    background-color: skyblue;
+    width: 500px;
+    height: 400px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:black;
+}
+
+.forest
+{
+    background-color: forestgreen;
+    width: 500px;
+    height: 400px;
+    font-family: 'helevectia';
+    color:tomato;
+
+}
+
+.cloud
+{
+    background-color: aquamarine;
+    width: 500px;
+    height: 400px;
+    font-family: 'fantasy';
+    color: beige;
+}
+
+.Red
+{
+    background-color: tomato;
+}
+
+.Blue
+{
+    background-color: blue;
+}
+
+.Pink
+{
+    background-color: pink;
+}
